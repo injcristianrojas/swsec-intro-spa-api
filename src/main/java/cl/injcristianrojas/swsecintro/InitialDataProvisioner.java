@@ -24,6 +24,9 @@ public class InitialDataProvisioner implements ApplicationListener<ContextRefres
     private void populateDatabase() {
         jdbcTemplate.execute("INSERT INTO messages(message) VALUES ('Bienvenidos al foro de Fans de las Aves Chilenas. Soy el Administrador.')");
         jdbcTemplate.execute("INSERT INTO messages(message) VALUES ('Se informa que la API se encuentra deshabilitada hasta nuevo aviso.')");
+        jdbcTemplate.execute("INSERT INTO users(username,password,user_type) VALUES ('admin', '123', 1)");
+        jdbcTemplate.execute("INSERT INTO users(username,password,user_type) VALUES ('zorzal', 'fio', 2)");
+        jdbcTemplate.execute("INSERT INTO users(username,password,user_type) VALUES ('chincol', 'fiofio', 2)");
         logger.info("Database populated.");
     }
 }

@@ -40,4 +40,13 @@ class SwsecIntroApplicationTests {
                 .accept(MediaType.APPLICATION_JSON)).andExpect(status().isOk());
     }
 
+    @Test
+    public void testGetUsers() throws Exception {
+        this.mvc.perform(get("/api/v1/users/all"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$[0].id", is(1)))
+                .andExpect(jsonPath("$[0].username", is("admin")));
+
+    }
+
 }
