@@ -25,6 +25,8 @@ public class InitialDataProvisioner implements ApplicationListener<ContextRefres
     }
 
     private void populateDatabase() {
+        jdbcTemplate.execute("DROP TABLE IF EXISTS messages;");
+        jdbcTemplate.execute("DROP TABLE IF EXISTS users;");
         jdbcTemplate.execute("CREATE TABLE IF NOT EXISTS messages (id INTEGER PRIMARY KEY NOT NULL, message TEXT NOT NULL );");
         jdbcTemplate.execute("CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY NOT NULL, username VARCHAR(10) NOT NULL, password VARCHAR(30) NOT NULL, user_type INTEGER NOT NULL);");
         jdbcTemplate.execute("INSERT INTO messages(message) VALUES ('Bienvenidos al foro de Fans de las Aves Chilenas. Soy el Administrador.')");
