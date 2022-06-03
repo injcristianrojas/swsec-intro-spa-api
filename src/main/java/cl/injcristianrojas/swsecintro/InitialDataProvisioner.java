@@ -1,6 +1,6 @@
 package cl.injcristianrojas.swsecintro;
 
-import cl.injcristianrojas.swsecintro.rest.controller.TestController;
+import cl.injcristianrojas.swsecintro.controller.TestController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.event.ContextRefreshedEvent;
