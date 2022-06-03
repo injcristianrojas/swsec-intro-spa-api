@@ -17,12 +17,12 @@ public class MessageController {
     @Autowired
     private MessageService messageService;
 
-    @GetMapping("/messages/all")
+    @GetMapping("/api/v1/messages/all")
     public List<Message> getAllMessages() {
         return messageService.findAllMessages();
     }
 
-    @PostMapping("/messages/new")
+    @PostMapping("/api/v1/messages/new")
     public Map<String,Object> postNewMessages(@RequestBody Message newMessage){
         return messageService.save(newMessage);
     }

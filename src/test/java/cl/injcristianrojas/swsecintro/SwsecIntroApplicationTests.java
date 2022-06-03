@@ -25,7 +25,7 @@ class SwsecIntroApplicationTests {
 
     @Test
     public void testGetPosts() throws Exception {
-        this.mvc.perform(get("/messages/all"))
+        this.mvc.perform(get("/api/v1/messages/all"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$[0].id", is(1)))
                 .andExpect(jsonPath("$[0].message", is("Bienvenidos al foro de Fans de las Aves Chilenas. Soy el Administrador.")));
@@ -34,7 +34,7 @@ class SwsecIntroApplicationTests {
 
     @Test
     public void testPutPost() throws Exception {
-        this.mvc.perform(post("/messages/new")
+        this.mvc.perform(post("/api/v1/messages/new")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content("{ \"message\": \"test\"}")
                 .accept(MediaType.APPLICATION_JSON)).andExpect(status().isOk());
