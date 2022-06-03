@@ -6,7 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.context.ApplicationListener;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.stereotype.Component;
+
+import javax.sql.DataSource;
 
 @Component
 public class InitialDataProvisioner implements ApplicationListener<ContextRefreshedEvent> {
@@ -22,6 +25,8 @@ public class InitialDataProvisioner implements ApplicationListener<ContextRefres
     }
 
     private void populateDatabase() {
+        jdbcTemplate.execute("CREATE TABLE IF NOT EXISTS messages (id INTEGER PRIMARY KEY NOT NULL, message TEXT NOT NULL );");
+        jdbcTemplate.execute("CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY NOT NULL, username VARCHAR(10) NOT NULL, password VARCHAR(30) NOT NULL, user_type INTEGER NOT NULL);");
         jdbcTemplate.execute("INSERT INTO messages(message) VALUES ('Bienvenidos al foro de Fans de las Aves Chilenas. Soy el Administrador.')");
         jdbcTemplate.execute("INSERT INTO messages(message) VALUES ('Se informa que la API se encuentra deshabilitada hasta nuevo aviso.')");
         jdbcTemplate.execute("INSERT INTO users(username,password,user_type) VALUES ('admin', '123', 1)");
