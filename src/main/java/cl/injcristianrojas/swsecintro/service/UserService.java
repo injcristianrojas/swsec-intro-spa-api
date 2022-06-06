@@ -1,6 +1,5 @@
 package cl.injcristianrojas.swsecintro.service;
 
-import cl.injcristianrojas.swsecintro.model.Message;
 import cl.injcristianrojas.swsecintro.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
