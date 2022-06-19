@@ -43,6 +43,7 @@ public class AppSecurity extends WebSecurityConfigurerAdapter {
         http.addFilterBefore(jwtTokenFilter, UsernamePasswordAuthenticationFilter.class);
     }
 
+    @SuppressWarnings("EmptyMethod")
     @Override
     @Bean
     public AuthenticationManager authenticationManagerBean() throws Exception {
