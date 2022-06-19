@@ -31,13 +31,10 @@ public class JwtAuthController {
             User user = userService.authenticateUser(request.getUsername(), request.getPassword());
             String accessToken = jwtTokenUtil.generateAccessToken(user);
             AuthResponse response = new AuthResponse(accessToken);
-
             return ResponseEntity.ok().body(response);
 
-        } catch (BadCredentialsException ex) {
+        } catch (Exception ex) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
     }
 
