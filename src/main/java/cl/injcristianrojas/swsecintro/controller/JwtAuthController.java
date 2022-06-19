@@ -27,7 +27,6 @@ public class JwtAuthController {
 
     @PostMapping("/api/v1/login")
     public ResponseEntity<?> login(@RequestBody AuthRequest request) {
-        System.out.println(request.getUsername());
         try {
             User user = userService.authenticateUser(request.getUsername(), request.getPassword());
             String accessToken = jwtTokenUtil.generateAccessToken(user);
