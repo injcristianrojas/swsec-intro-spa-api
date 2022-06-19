@@ -2,3 +2,6 @@ spring:
   datasource:
     url: jdbc:sqlite:swsecintro.sqlite
     driver-class-name: org.sqlite.JDBC
+
+jwt:
+  secret: 12345

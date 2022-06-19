@@ -5,3 +5,5 @@ cd spa
 ng serve
 
 OAuth: https://www.baeldung.com/spring-security-oauth-auth-server
+Add tests
+Make it sessionless
