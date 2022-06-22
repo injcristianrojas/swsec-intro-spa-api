@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit {
   login(username, password): void {
     this.api.login(username, password).subscribe(
       data => {
-        this.auth.setToken(data.headers.get('Authorization'));
+        this.auth.setToken(data.body['token']);
         this.loginForm.reset();
       },
       error => {

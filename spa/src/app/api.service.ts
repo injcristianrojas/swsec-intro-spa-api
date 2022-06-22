@@ -10,7 +10,7 @@ export class ApiService {
 
   login(username, password) {
     return this.http.post(
-      'http://127.0.0.1:8080/api/auth/login',
+      'http://127.0.0.1:8080/api/v1/login',
       {'username': username, 'password': password},
       { observe: 'response' }
     )
