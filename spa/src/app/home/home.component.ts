@@ -24,6 +24,7 @@ export class HomeComponent implements OnInit {
     this.api.login(username, password).subscribe(
       data => {
         this.auth.setToken(data.body['token']);
+        console.log(this.auth.getToken());
         this.loginForm.reset();
       },
       error => {
