@@ -35,8 +35,9 @@ export class ApiService {
 
   insertPost(message: string) {
     return this.http.post(
-      'http://127.0.0.1:8080/api/posts/add',
-      {'message': message}
+      'http://127.0.0.1:8080/api/v1/messages/new',
+      {'message': message},
+      this.getHeaders()
     )
   }
 }
