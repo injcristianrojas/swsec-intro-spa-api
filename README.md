@@ -52,3 +52,7 @@ mvn compile spotbugs:spotbugs spotbugs:gui
 ```shell
 mvn dependency-check:check
 ```
+Check version upgrades using:
+
+* `mvn versions:display-dependency-updates` to print them to console
+* `mvn versions:dependency-updates-report` to get an HTML report.
