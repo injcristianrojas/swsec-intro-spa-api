@@ -104,6 +104,19 @@
 				</configuration>
 			</plugin>
 
+			<plugin>
+        <groupId>org.owasp</groupId>
+        <artifactId>dependency-check-maven</artifactId>
+        <version>7.1.1</version>
+        <configuration>
+          <formats>HTML,XML,JSON</formats>
+          <nodeAnalyzerEnabled>false</nodeAnalyzerEnabled>
+          <nodeAuditAnalyzerEnabled>false</nodeAuditAnalyzerEnabled>
+          <retireJsAnalyzerEnabled>false</retireJsAnalyzerEnabled>
+          <assemblyAnalyzerEnabled>false</assemblyAnalyzerEnabled>
+        </configuration>
+      </plugin>
+
 		</plugins>
 	</build>
 

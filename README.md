@@ -43,8 +43,12 @@ ng serve
 
 ### SAST
 
-Run:
-
 ```shell
 mvn compile spotbugs:spotbugs spotbugs:gui
+```
+
+### SCA
+
+```shell
+mvn dependency-check:check
 ```
