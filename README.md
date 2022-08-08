@@ -38,3 +38,13 @@ Then launch the SPA:
 cd spa
 ng serve
 ```
+
+## Security analysis
+
+### SAST
+
+Run:
+
+```shell
+mvn compile spotbugs:spotbugs spotbugs:gui
+```
