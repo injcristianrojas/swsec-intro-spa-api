@@ -29,7 +29,7 @@ npm install
 Launch the API:
 
 ```shell
-mvn jetty:run
+mvn spring-boot:run
 ```
 
 Then launch the SPA:
