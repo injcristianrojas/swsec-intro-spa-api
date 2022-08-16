@@ -3,5 +3,9 @@ spring:
     url: jdbc:sqlite:swsecintro.sqlite
     driver-class-name: org.sqlite.JDBC
 
+logging:
+  level:
+    org.springframework.web: DEBUG
+
 jwt:
   secret: 12345
