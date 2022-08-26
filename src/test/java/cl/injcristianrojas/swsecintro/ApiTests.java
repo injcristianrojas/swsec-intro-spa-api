@@ -68,4 +68,13 @@ class ApiTests {
 
     }
 
+    @Test
+    public void testGetUsersType1() throws Exception {
+        this.mockMvc.perform(get("/api/v1/users/type/2").headers(headers))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$[0].id", is(2)))
+                .andExpect(jsonPath("$[0].username", is("zorzal")));
+
+    }
+
 }
