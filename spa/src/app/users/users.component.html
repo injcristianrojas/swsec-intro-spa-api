@@ -1,0 +1,7 @@
+<table style="text-align: left;" *ngIf="users">
+  <caption></caption>
+  <th id="msgs">Usuarios</th>
+  <tr *ngFor="let user of users">
+    <td [innerHTML]="user.username"></td>
+  </tr>
+</table>

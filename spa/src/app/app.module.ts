@@ -11,6 +11,7 @@ import { PostsComponent } from './posts/posts.component';
 import { MenuComponent } from './menu/menu.component';
 import { SanitizeHtmlPipe } from './sanitize-html.pipe';
 import { PasswordsComponent } from './passwords/passwords.component';
+import { UsersComponent } from './users/users.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { PasswordsComponent } from './passwords/passwords.component';
     PostsComponent,
     MenuComponent,
     PasswordsComponent,
-    SanitizeHtmlPipe
+    SanitizeHtmlPipe,
+    UsersComponent
   ],
   imports: [
     BrowserModule,

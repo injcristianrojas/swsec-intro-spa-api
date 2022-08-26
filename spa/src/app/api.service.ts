@@ -40,4 +40,11 @@ export class ApiService {
       this.getHeaders()
     )
   }
+
+  getUsers(userType: string) {
+    return this.http.get(
+      'http://127.0.0.1:8080/api/v1/users/type/' + userType,
+      this.getHeaders()
+    );
+  }
 }
