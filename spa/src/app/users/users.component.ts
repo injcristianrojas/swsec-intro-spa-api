@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { ApiService } from '../api.service';
 
 @Component({
@@ -9,16 +10,17 @@ import { ApiService } from '../api.service';
 export class UsersComponent implements OnInit {
 
   users: Object;
+  userType: string;
 
-  constructor(private api: ApiService) { }
+  constructor(private api: ApiService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.userType = this.route.snapshot.paramMap.get('userType');
     this.getUsers();
   }
 
   getUsers(): void {
-    let userType = '1';
-    this.api.getUsers(userType).subscribe(
+    this.api.getUsers(this.userType).subscribe(
       data => {
         this.users = data;
       },
