@@ -9,3 +9,4 @@ logging:
 
 jwt:
   secret: 12345
+  duration_milliseconds: 86400000
