@@ -33,14 +33,15 @@ class UnauthenticatedTests {
                 .andExpect(status().isUnauthorized());
     }
 
-    /*
     @Test
-    public void testSQLInjectionOnUserLogin() throws Exception {
-        this.mockMvc.perform(post("/api/v1/login").contentType(MediaType.APPLICATION_JSON).content("{ \"username\": \"admin\", \"password\": \"abc%27%20or%20%271%27=%271\"}"))
+    public void testSQLInjectionOnUserLoginAggressive() throws Exception {
+        this.mockMvc.perform(post("/api/v1/login").contentType(MediaType.APPLICATION_JSON).content("{ \"username\": \"admin\", \"password\": \"' or 1=1;-- \"}"))
                 .andExpect(status().isOk());
     }
-    */
 
-
-
+    @Test
+    public void testSQLInjectionOnUserLoginNonAggressive() throws Exception {
+        this.mockMvc.perform(post("/api/v1/login").contentType(MediaType.APPLICATION_JSON).content("{ \"username\": \"admin\", \"password\": \"' or '1'='1\"}"))
+                .andExpect(status().isOk());
+    }
 }
