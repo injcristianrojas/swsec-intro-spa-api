@@ -15,11 +15,6 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @GetMapping("/api/v1/users/all")
-    public List<User> getAllUsers() {
-        return userService.findAllUsers();
-    }
-
     @GetMapping("/api/v1/users/type/{user_type}")
     public List<User> getAllUsers(@PathVariable String user_type) {
         return userService.findUsersByType(user_type);

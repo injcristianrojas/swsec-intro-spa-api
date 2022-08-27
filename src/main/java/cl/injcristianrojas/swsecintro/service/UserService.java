@@ -14,10 +14,6 @@ public class UserService {
     @Autowired
     JdbcTemplate jdbcTemplate;
 
-    public List<User> findAllUsers() {
-        return new ArrayList<>(jdbcTemplate.query("SELECT * FROM users", (rs, rowNum) -> new User(rs.getLong("id"), rs.getString("username"), rs.getInt("user_type"))));
-    }
-
     public List<User> findUsersByType(String user_type) {
         return new ArrayList<>(jdbcTemplate.query("SELECT * FROM users where user_type = " + user_type, (rs, rowNum) -> new User(rs.getLong("id"), rs.getString("username"), rs.getInt("user_type"))));
     }

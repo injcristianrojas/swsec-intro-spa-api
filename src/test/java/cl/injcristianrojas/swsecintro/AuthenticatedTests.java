@@ -60,15 +60,6 @@ class AuthenticatedTests {
     }
 
     @Test
-    public void testGetUsers() throws Exception {
-        this.mockMvc.perform(get("/api/v1/users/all").headers(headers))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$[0].id", is(1)))
-                .andExpect(jsonPath("$[0].username", is("admin")));
-
-    }
-
-    @Test
     public void testGetUsersType1() throws Exception {
         this.mockMvc.perform(get("/api/v1/users/type/2").headers(headers))
                 .andExpect(status().isOk())
