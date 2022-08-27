@@ -31,7 +31,6 @@ public class JwtAuthController {
             String accessToken = jwtTokenUtil.generateAccessToken(user);
             AuthResponse response = new AuthResponse(accessToken);
             return ResponseEntity.ok().body(response);
-
         } catch (Exception ex) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
         }
