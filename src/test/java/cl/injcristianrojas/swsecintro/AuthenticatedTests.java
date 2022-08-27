@@ -24,7 +24,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest
 @AutoConfigureMockMvc
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-class ApiHackTests {
+class AuthenticatedTests {
 
     @Autowired
     private MockMvc mockMvc;
@@ -42,7 +42,43 @@ class ApiHackTests {
     }
 
     @Test
-    public void testDoSQLInjectionOnUserList() throws Exception {
+    public void testGetPosts() throws Exception {
+        this.mockMvc.perform(get("/api/v1/messages/all").headers(headers))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$[0].id", is(1)))
+                .andExpect(jsonPath("$[0].message", is("Bienvenidos al foro de Fans de las Aves Chilenas. Soy el Administrador.")));
+
+    }
+
+    @Test
+    public void testPutPost() throws Exception {
+        this.mockMvc.perform(post("/api/v1/messages/new").headers(headers)
+                .contentType(MediaType.APPLICATION_JSON)
+                .content("{ \"message\": \"test\"}")
+                .accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk());
+    }
+
+    @Test
+    public void testGetUsers() throws Exception {
+        this.mockMvc.perform(get("/api/v1/users/all").headers(headers))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$[0].id", is(1)))
+                .andExpect(jsonPath("$[0].username", is("admin")));
+
+    }
+
+    @Test
+    public void testGetUsersType1() throws Exception {
+        this.mockMvc.perform(get("/api/v1/users/type/2").headers(headers))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$[0].id", is(2)))
+                .andExpect(jsonPath("$[0].username", is("zorzal")));
+
+    }
+
+    @Test
+    public void testSQLInjectionOnUserList() throws Exception {
         this.mockMvc.perform(get("/api/v1/users/type/2 or '1'='1'").headers(headers))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$[0].id", is(1)))

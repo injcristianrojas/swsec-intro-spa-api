@@ -16,7 +16,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @AutoConfigureMockMvc
-class FailedApiTests {
+class UnauthenticatedTests {
 
     @Autowired
     private MockMvc mockMvc;
@@ -32,6 +32,14 @@ class FailedApiTests {
         this.mockMvc.perform(post("/api/v1/login").contentType(MediaType.APPLICATION_JSON).content("{ \"username\": \"admin\", \"password\": \"456\"}"))
                 .andExpect(status().isUnauthorized());
     }
+
+    /*
+    @Test
+    public void testSQLInjectionOnUserLogin() throws Exception {
+        this.mockMvc.perform(post("/api/v1/login").contentType(MediaType.APPLICATION_JSON).content("{ \"username\": \"admin\", \"password\": \"abc%27%20or%20%271%27=%271\"}"))
+                .andExpect(status().isOk());
+    }
+    */
 
 
 
