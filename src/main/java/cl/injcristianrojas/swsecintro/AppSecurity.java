@@ -1,6 +1,6 @@
 package cl.injcristianrojas.swsecintro;
 
-import cl.injcristianrojas.swsecintro.service.UserService;
+import cl.injcristianrojas.swsecintro.service.UserServiceJDBC;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
 public class AppSecurity extends WebSecurityConfigurerAdapter {
 
     @Autowired
-    private UserService userService;
+    private UserServiceJDBC userService;
     @Autowired
     private JwtTokenFilter jwtTokenFilter;
 
