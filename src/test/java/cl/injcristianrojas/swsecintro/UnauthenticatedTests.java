@@ -33,11 +33,14 @@ class UnauthenticatedTests {
                 .andExpect(status().isUnauthorized());
     }
 
+    // Doesn't work on JPA
+    /*
     @Test
     public void testSQLInjectionOnUserLoginAggressive() throws Exception {
         this.mockMvc.perform(post("/api/v1/login").contentType(MediaType.APPLICATION_JSON).content("{ \"username\": \"admin\", \"password\": \"' or 1=1;-- \"}"))
                 .andExpect(status().isOk());
     }
+    */
 
     @Test
     public void testSQLInjectionOnUserLoginNonAggressive() throws Exception {

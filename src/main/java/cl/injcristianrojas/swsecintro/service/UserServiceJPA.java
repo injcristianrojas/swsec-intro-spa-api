@@ -30,7 +30,7 @@ public class UserServiceJPA implements UserServiceInterface {
     }
 
     public User findByUsername(String username) {
-        TypedQuery<User> query = entityManager.createQuery("from User where username = " + username + "'", User.class);
+        TypedQuery<User> query = entityManager.createQuery("from User where username = '" + username + "'", User.class);
         return query.getSingleResult();
     }
 }

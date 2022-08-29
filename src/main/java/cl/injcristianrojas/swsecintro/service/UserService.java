@@ -10,7 +10,7 @@ import java.util.List;
 public class UserService implements UserServiceInterface {
 
     @Autowired
-    private UserServiceJDBC userService;
+    private UserServiceJPA userService;
 
     public List<User> findUsersByType(String user_type) {
         return userService.findUsersByType(user_type);
