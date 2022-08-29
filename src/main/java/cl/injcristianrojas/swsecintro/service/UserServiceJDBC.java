@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Repository
-public class UserServiceJDBC {
+public class UserServiceJDBC implements UserServiceInterface {
 
     @Autowired
     JdbcTemplate jdbcTemplate;

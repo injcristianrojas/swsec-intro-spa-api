@@ -1,6 +1,6 @@
 package cl.injcristianrojas.swsecintro;
 
-import cl.injcristianrojas.swsecintro.service.UserServiceJDBC;
+import cl.injcristianrojas.swsecintro.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -21,7 +21,7 @@ public class JwtTokenFilter extends OncePerRequestFilter {
     @Autowired
     private JwtTokenUtil jwtTokenUtil;
     @Autowired
-    private UserServiceJDBC userService;
+    private UserService userService;
 
     @Override
     protected void doFilterInternal(HttpServletRequest request,

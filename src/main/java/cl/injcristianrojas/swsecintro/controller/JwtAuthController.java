@@ -4,7 +4,7 @@ import cl.injcristianrojas.swsecintro.JwtTokenUtil;
 import cl.injcristianrojas.swsecintro.model.AuthRequest;
 import cl.injcristianrojas.swsecintro.model.AuthResponse;
 import cl.injcristianrojas.swsecintro.model.User;
-import cl.injcristianrojas.swsecintro.service.UserServiceJDBC;
+import cl.injcristianrojas.swsecintro.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +17,7 @@ public class JwtAuthController {
     @Autowired
     JwtTokenUtil jwtTokenUtil;
     @Autowired
-    UserServiceJDBC userService;
+    UserService userService;
 
     @PostMapping("/api/v1/login")
     public ResponseEntity<?> login(@RequestBody AuthRequest request) {
